@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 NSString *alph;
 
-int somefunc(NSString* str)
+int compareWithAlphabet(NSString* str)
 {
     if ([str length]>0)
     {
@@ -29,14 +29,13 @@ int somefunc(NSString* str)
     return 1;
 }
 
-int main(int argc, const char * argv[])
+int main()
 {
     @autoreleasepool
     {
         char cstring[1002];
         alph = @"abcdefghijklmnopqrstuvwxyz";
         NSString *str;
-        
         
         scanf("%s", cstring);
         str = [NSString stringWithCString:cstring encoding:1];
@@ -47,7 +46,7 @@ int main(int argc, const char * argv[])
         while ([str length]>0 && [alph length]>0)
         {
             str = [str lowercaseString];
-            somefunc(str);
+            compareWithAlphabet(str);
             tstr = str;
             str = @"";
             scanf("%s", cstring);
