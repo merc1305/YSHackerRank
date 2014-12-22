@@ -3,7 +3,7 @@
 int function(unsigned long long num)
 {
     unsigned long long i=0, j=0, fibo=1;
-    for(int m=0;;m++)
+    for(int m = 0;;m++)
     {
         i = fibo;
         fibo = fibo + j;
@@ -12,6 +12,7 @@ int function(unsigned long long num)
         else if(fibo>num) return 0;
     }
 }
+
 int main()
 {
     unsigned k;
@@ -21,19 +22,14 @@ int main()
         unsigned long long int answer=0;
         unsigned long long num;
         scanf("%llu",&num);
-        if(num == 0 || num ==1){
+        if(num == 0 || num ==1)
+        {
             printf("IsFibo\n");
-        }
-        else
+        } else
         {
             answer = function(num);
-            if(answer==1)
-            {
-                printf("IsFibo\n");
-            } else
-            {
-                printf("IsNotFibo\n");
-            }
+            if (answer==1) printf("IsFibo\n");
+            else printf("IsNotFibo\n");
         }
     }
     return 0;

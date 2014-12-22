@@ -31,38 +31,35 @@ int compareWithAlphabet(NSString* str)
 
 int main()
 {
-    @autoreleasepool
+    char cstring[1000];
+    alph = @"abcdefghijklmnopqrstuvwxyz";
+    NSString *str;
+    
+    scanf("%s", cstring);
+    str = [NSString stringWithCString:cstring encoding:1];
+    
+    NSString *tstr = @"";
+    int n = 0;
+    
+    while ([str length]>0 && [alph length]>0)
     {
-        char cstring[1002];
-        alph = @"abcdefghijklmnopqrstuvwxyz";
-        NSString *str;
-        
+        str = [str lowercaseString];
+        compareWithAlphabet(str);
+        tstr = str;
+        str = @"";
         scanf("%s", cstring);
         str = [NSString stringWithCString:cstring encoding:1];
-        
-        NSString *tstr = @"";
-        int n = 0;
-        
-        while ([str length]>0 && [alph length]>0)
-        {
-            str = [str lowercaseString];
-            compareWithAlphabet(str);
-            tstr = str;
-            str = @"";
-            scanf("%s", cstring);
-            str = [NSString stringWithCString:cstring encoding:1];
-            str = [str lowercaseString];
-            if ([tstr isEqualToString:str]) break;
-        }
-        
-        if ([alph length]<1)
-        {
-            printf("pangram");
-        }
-        else
-        {
-            printf("not pangram");
-        }
+        str = [str lowercaseString];
+        if ([tstr isEqualToString:str]) break;
+    }
+    
+    if ([alph length]<1)
+    {
+        printf("pangram");
+    }
+    else
+    {
+        printf("not pangram");
     }
     return 0;
 }
